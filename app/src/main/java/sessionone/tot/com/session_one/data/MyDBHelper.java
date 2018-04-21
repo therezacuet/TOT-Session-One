@@ -91,7 +91,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         // SELECT * FROM EMPLOYEE;
         //Cursor cursor = db.query(DB_TABLE, null, null, null, null, null,null,AGE_FIELD+ " ASC");
 
-        Cursor cursor = db.rawQuery("SELECT * FROM testData ORDER BY age", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM student_info", null);
         if (cursor != null && cursor.getCount() > 0) {
             cursor.moveToFirst();
             for (int i = 0; i < cursor.getCount(); i++) {
@@ -99,7 +99,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
                 int id = cursor.getInt(cursor.getColumnIndex(ID_FIELD));
                 String name = cursor.getString(cursor
                         .getColumnIndex(NAME_FIELD));
-                String age = cursor.getString(cursor
+                String gender = cursor.getString(cursor
                         .getColumnIndex(GENDER_FIELD));
                 String phone = cursor.getString(cursor
                         .getColumnIndex(PHONE_FIELD));
@@ -109,7 +109,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
                         .getColumnIndex(INSTITUTE_FIELD));
 
 
-                FormDataModel st = new FormDataModel(name, age, phone,email,institute);
+                FormDataModel st = new FormDataModel(name, gender, phone,email,institute);
                 allStudents.add(st);
                 cursor.moveToNext();
             }

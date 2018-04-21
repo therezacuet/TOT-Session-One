@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sessionone.tot.com.session_one">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -19,9 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MyBrowser" />
-        <activity android:name=".activities.StoreData" />
-        <activity android:name=".activities.ViewData"></activity>
+        <activity android:name=".activities.MyBrowser"
+            android:parentActivityName=".activities.Home"/>
+        <activity android:name=".activities.StoreData"
+            android:parentActivityName=".activities.Home"/>
+        <activity android:name=".activities.ViewData"
+            android:parentActivityName=".activities.Home"/>
     </application>
 
 </manifest>

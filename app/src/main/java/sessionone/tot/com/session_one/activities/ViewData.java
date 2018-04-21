@@ -2,8 +2,10 @@ package sessionone.tot.com.session_one.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ public class ViewData extends AppCompatActivity {
     RecyclerView rvViewData;
 
     @BindView(R.id.tv_empty)
-    RecyclerView tvEmpty;
+    TextView tvEmpty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,7 @@ public class ViewData extends AppCompatActivity {
             tvEmpty.setVisibility(View.VISIBLE);
         }else {
             RecyclerViewAdapter mAdapter =new RecyclerViewAdapter(datamodel);
+            rvViewData.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             rvViewData.setAdapter(mAdapter);
         }
     }

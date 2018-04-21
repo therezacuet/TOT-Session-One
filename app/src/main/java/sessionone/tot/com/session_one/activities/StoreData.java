@@ -37,21 +37,22 @@ public class StoreData extends AppCompatActivity {
 
     @OnClick(R.id.btn_save)
     void saveData() {
-
+        myDBHelper=new MyDBHelper(getApplicationContext());
         name = etName.getText().toString();
-        email = etName.getText().toString();
-        gender = etName.getText().toString();
-        phone = etName.getText().toString();
-        institute = etName.getText().toString();
-
-
+        email = etEmail.getText().toString();
+        gender = etGender.getText().toString();
+        phone = etPhone.getText().toString();
+        institute = etInstitute.getText().toString();
         FormDataModel student = new FormDataModel(name, email, gender,phone,institute);
         long inserted = myDBHelper.insertStudent(student);
-
-
         if (inserted >= 0) {
             Toast.makeText(getApplicationContext(), "Data inserted",
                     Toast.LENGTH_LONG).show();
+            etName.setText("");
+            etGender.setText("");
+            etPhone.setText("");
+            etEmail.setText("");
+            etInstitute.setText("");
         } else {
             Toast.makeText(getApplicationContext(), "Data insertion failed...",
                     Toast.LENGTH_LONG).show();
@@ -62,9 +63,4 @@ public class StoreData extends AppCompatActivity {
     void viewData() {
         startActivity(new Intent(StoreData.this, ViewData.class));
     }
-
-
-
-
-
 }
