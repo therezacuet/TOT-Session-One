@@ -11,7 +11,10 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_height="wrap_content"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
         android:text="Web View"/>
 
     <Button
@@ -20,7 +23,10 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:text="Store Data"
-        android:layout_width="200dp" />
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:layout_width="300dp" />
 
 
     <Button
@@ -28,6 +34,18 @@
         android:layout_below="@+id/btn_store_data"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
         android:text="View Data" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+
+        android:src="@drawable/icimg" />
 </RelativeLayout>

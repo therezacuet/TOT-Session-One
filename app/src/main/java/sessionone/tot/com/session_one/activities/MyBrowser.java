@@ -40,7 +40,7 @@ public class MyBrowser extends AppCompatActivity {
             wvBrowser.setVisibility(View.GONE);
         }else{
 
-            String url ="https://google.com/";
+            String url ="https://www.facebook.com/";
             wvBrowser.getSettings().setJavaScriptEnabled(true);
             wvBrowser.getSettings().setBuiltInZoomControls(true);
             wvBrowser.getSettings().setDisplayZoomControls(false);
@@ -89,5 +89,10 @@ public class MyBrowser extends AppCompatActivity {
             pbLoader.setVisibility(View.GONE);
             mySwipeRefreshLayout.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        wvBrowser.goBack();
     }
 }
