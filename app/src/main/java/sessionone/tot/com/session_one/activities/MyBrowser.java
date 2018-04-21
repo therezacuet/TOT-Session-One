@@ -1,5 +1,6 @@
 package sessionone.tot.com.session_one.activities;
 
+import android.graphics.Bitmap;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,7 +44,7 @@ public class MyBrowser extends AppCompatActivity {
             wvBrowser.getSettings().setJavaScriptEnabled(true);
             wvBrowser.getSettings().setBuiltInZoomControls(true);
             wvBrowser.getSettings().setDisplayZoomControls(false);
-            wvBrowser.setWebViewClient(new AppWebViewClients());
+            wvBrowser.setWebViewClient(new CustomWebClient());
             wvBrowser.loadUrl(url);
 
             mySwipeRefreshLayout.setOnRefreshListener(
@@ -60,28 +61,33 @@ public class MyBrowser extends AppCompatActivity {
     }
 
 
-    public class AppWebViewClients extends WebViewClient{
-
-        private ProgressBar progressBar;
-
-        public AppWebViewClients() {
-            this.progressBar =pbLoader;
-            progressBar.setVisibility(View.VISIBLE);
-            mySwipeRefreshLayout.setVisibility(View.GONE);
-            tvEmpty.setVisibility(View.GONE);
-
-
+    public class CustomWebClient extends WebViewClient
+    {
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            // TODO Auto-generated method stub
+            super.onPageStarted(view, url, favicon);
+            pbLoader.setVisibility(View.VISIBLE);
         }
+
+        @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             // TODO Auto-generated method stub
+            pbLoader.setVisibility(View.VISIBLE);
+            mySwipeRefreshLayout.setVisibility(View.GONE);
+            tvEmpty.setVisibility(View.GONE);
             view.loadUrl(url);
             return true;
+
         }
 
+        @Override
         public void onPageFinished(WebView view, String url) {
             // TODO Auto-generated method stub
             super.onPageFinished(view, url);
-            progressBar.setVisibility(View.GONE);
+
+            pbLoader.setVisibility(View.GONE);
+            mySwipeRefreshLayout.setVisibility(View.VISIBLE);
         }
     }
 }
