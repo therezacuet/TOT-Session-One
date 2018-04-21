@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TOT Session One</string>
+    <string name="spinner_title">Select Gender</string>
+    <string-array name="gender_arrays">
+        <item>Male</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+
+    </string-array>
 </resources>

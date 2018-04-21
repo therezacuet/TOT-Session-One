@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -20,14 +21,15 @@ public class StoreData extends AppCompatActivity {
 
     @BindView(R.id.input_name)
     EditText etName;
-    @BindView(R.id.input_gender)
-    EditText etGender;
+    @BindView(R.id.sp_gender)
+    Spinner spGender;
     @BindView(R.id.input_phone)
     EditText etPhone;
     @BindView(R.id.input_email)
     EditText etEmail;
     @BindView(R.id.input_institute)
     EditText etInstitute;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class StoreData extends AppCompatActivity {
         myDBHelper=new MyDBHelper(getApplicationContext());
         name = etName.getText().toString();
         email = etEmail.getText().toString();
-        gender = etGender.getText().toString();
+        gender = spGender.getSelectedItem().toString();
         phone = etPhone.getText().toString();
         institute = etInstitute.getText().toString();
         FormDataModel student = new FormDataModel(name, email, gender,phone,institute);
@@ -49,7 +51,7 @@ public class StoreData extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Data inserted",
                     Toast.LENGTH_LONG).show();
             etName.setText("");
-            etGender.setText("");
+            spGender.setPrompt(getResources().getString(R.string.spinner_title));
             etPhone.setText("");
             etEmail.setText("");
             etInstitute.setText("");

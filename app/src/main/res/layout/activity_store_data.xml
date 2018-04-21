@@ -32,15 +32,20 @@
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_gender"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="15dp"
+                android:layout_height="30dp">
 
-                <EditText
-                    android:id="@+id/input_gender"
+                <Spinner
+                    android:id="@+id/sp_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:inputType="text"
-                    android:hint="Gender" />
+                    android:prompt="@string/spinner_title"
+                    android:gravity="center"
+                    android:spinnerMode="dialog"
+                    android:entries="@array/gender_arrays">
+
+                </Spinner>
+
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
